@@ -1,4 +1,4 @@
-# Engineering Starter
+# Project Starter
 
 A reusable engineering operating system for software projects built with Antigravity.
 
