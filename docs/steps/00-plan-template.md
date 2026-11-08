@@ -28,7 +28,7 @@ Scope creep starts here. Be precise.
 ## Plan
 
 <!--
-Numbered implementation plan.
+Numbered implementation plan with explicit success/verification criteria per item.
 This is written before implementation begins and approved before work starts.
 
 1.
@@ -54,22 +54,25 @@ API behaviour, data shape, performance characteristics, edge cases.
 
 <!--
 What was actually verified and how?
+- scripts/verify.ps1: [pass/fail]
 - Tests run: [pass/fail]
 - git status: [summary]
 - git diff: [reviewed/any unexpected changes]
 - Application started: [yes/no]
-- Browser verified: [what was checked]
+- Browser verified (browser-verification / better-interface): [what was checked]
+- Docs & README product screenshots updated: [yes/no]
 -->
 
 ## Diff / Checkpoint
 
 <!--
-Record Git checkpoint details:
+Record Git checkpoint and cleanup details:
 - Pull Request URL:
 - First commit SHA:
 - Last commit SHA:
 - Merge commit SHA:
 - Merge strategy: Standard merge commit (--no-ff)
+- Step branch pruned (local & remote): [yes/no]
 - Summary of what changed:
 -->
 

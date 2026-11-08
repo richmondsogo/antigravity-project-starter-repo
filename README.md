@@ -1,155 +1,82 @@
-# Project Starter
+# Engineering Starter Repository
 
-A reusable engineering operating system for software projects built with Antigravity.
+A portable, self-contained engineering operating system for software projects built with Antigravity and agentic coding assistants.
 
----
-
-## What this is
-
-A starting point that encodes a coherent engineering workflow, agent instructions, design philosophy, documentation structure, verification discipline, and lightweight environment tooling.
-
-It is not an application. It does not contain React, FastAPI, a database, authentication, or deployment infrastructure.
-
-## What it is not
-
-- A project scaffold generator.
-- A component library.
-- A framework.
-- A collection of boilerplate to copy-paste.
-
-## Why it exists
-
-Starting a new project should not require reconstructing an entire engineering workflow from scratch. This starter captures the decisions, conventions, and tooling that make agent-assisted development coherent — so they travel with you into every project.
+Clone this repository onto any machine and start building immediately with a curated suite of **70+ UI/UX, Motion, Site-Testing, and Engineering Workflow skills**, a pre-configured **Phosphor Iconography System** (`components.json`), ready-to-use **MCP templates**, and strict **Git & Documentation hygiene**.
 
 ---
 
-## Starting a project from this starter
+## Product in Action (Visual Showcase Template)
 
-1. Copy or clone this repository into your new project directory.
-2. Delete `README.md` and replace it with a project-specific one.
-3. Complete `CONTEXT.md` with project-specific domain information.
-4. Update `DESIGN.md` with any project-specific design tokens or rules.
-5. Work through the new project checklist below.
-6. Run `scripts/bootstrap.ps1` to confirm your environment is ready.
-7. Create `docs/steps/00-plan.md` using the step template.
-8. Begin implementation using the Build Protocol.
+> **Standing Rule for Projects Built From This Starter**:
+> Every time `README.md` is created or updated for a project, **always include real product images or screenshots showing the product in action (`docs/assets/`) — every single time**, and update documentation on every pass and PR merge so docs are never stale.
 
-### New project checklist
-
-```
-[ ] Define project context (CONTEXT.md)
-[ ] Confirm technology stack
-[ ] Identify required MCPs (docs/agents/mcps.md)
-[ ] Identify relevant skills (docs/agents/skills.md)
-[ ] Establish project-specific design details (DESIGN.md)
-[ ] Create initial step plan (docs/steps/00-plan.md)
-[ ] Begin implementation
-[ ] Verify every meaningful step
-```
-
-Use the project-bootstrap skill (`.agents/skills/project-bootstrap/SKILL.md`) to help with this process.
-
----
-
-## How the agent workflow works
-
-The agent reads [`AGENTS.md`](./AGENTS.md) first. That document is the working agreement.
-
-The full development methodology is in [`BUILD_PROTOCOL.md`](./BUILD_PROTOCOL.md).
-
-The loop is:
-
-```
-Understand → Plan → Branch → Approve → Implement → Verify → Review diff → Record → PR & Review → Merge & Checkpoint
+```mermaid
+flowchart LR
+    A["1. Understand & Grill"] --> B["2. Plan & Branch (step/NN)"]
+    B --> C["3. Implement (TDD + Design System)"]
+    C --> D["4. Verify & Score (better-interface)"]
+    D --> E["5. Sync Docs & README Screenshots"]
+    E --> F["6. PR, Merge (--no-ff) & Prune Branch"]
 ```
 
 ---
 
-## Key documents
+## What Travels With This Repository
+
+### 1. Portable Agent Skills Suite (`.agents/skills/`)
+No global machine setup required. All skills live inside `.agents/skills/` and work out of the box:
+- **UI/UX Pro Max (`ui-ux-pro-max`)**: Local Python search engine (`scripts/search.py`) with 79 styles, 192 product palettes, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, and 22 technology stacks.
+- **Design & Art Direction**:
+  - `design-system` — Project token grounding + **Phosphor Icons** semantic weight hierarchy (`regular`, `duotone`, `bold`, `fill`).
+  - `minimalist-ui` — Warm monochrome palettes, editorial serif/sans hierarchy, flat `1px` border bento architectures.
+  - `tastemaker` (`codeswithroh`) & `taste-skill` (`leonxlnx`) — Anti-slop art direction, contrast-verified palettes, hallmark layouts.
+  - `web-design-engineer` & `motion-showreel` (ConardLi Garden skills) — OKLCH color theory, style recipes, interactive showreels.
+  - `landing-page-design` & `figma-designer` (Elaya Design) — Conversion-first offer strategy + visual system for landing pages.
+  - `build-awwwards-quality-sites` & `design-first-ui-prompting` (Meng To) — Awwwards-tier scroll storytelling and UI specs.
+  - `owl-*` (Owl-Listener Designer Toolkit) — Color systems, fluid typography scales, spacing grids, dark mode, micro-interactions, and Design QA checklists.
+- **Site Quality Scoring & UI Testing (Jakub Krehel)**:
+  - `better-interface` — Cross-discipline meta-audit that evaluates and scores how good a site is across UI, typography, color, layout, accessibility, and copy.
+  - `better-ui`, `better-typography`, `better-colors`, `better-layout`, `better-accessibility`, `better-writing`, `interface-review`, and `break` (edge-case stress testing).
+  - `browser-verification` — Real browser verification loop.
+- **Motion & GSAP Engineering (Emil Kowalski & GreenSock)**:
+  - `emil-design-eng`, `animate`, `review-animations`, `improve-animations`, `find-animation-opportunities`, `animation-performance`.
+  - Official GreenSock suite: `gsap-core`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-react`, `gsap-plugins`, `gsap-performance`, `gsap-frameworks`, `gsap-utils`, and `cinematic-gsap-lenis-motion-system`.
+- **Engineering Workflow & Alignment (Matt Pocock & Superpowers)**:
+  - `ask-matt`, `grill-me`, `to-spec`, `to-tickets`, `triage`, `implement`, `tdd`, `code-review`, `diagnosing-bugs`, `prototype`, `improve-codebase-architecture`, `domain-modeling`, `state-machine`, `resolving-merge-conflicts`, `wayfinder`.
+
+### 2. Baseline UI & MCP Configs
+- **[`components.json`](./components.json)**: Pre-configured for `shadcn/ui` with Tailwind CSS variables and `"iconLibrary": "phosphor"` (`@phosphor-icons/react`).
+- **[`.agents/mcp_config.json.example`](./.agents/mcp_config.json.example)**: Copy-paste ready configuration for `context7`, `shadcn`, `chrome-devtools`, `playwright`, `github`, and `neon`.
+
+### 3. Disciplined Git & Verification Scripts (`scripts/`)
+- **[`scripts/bootstrap.ps1`](./scripts/bootstrap.ps1)**: Inspects a newly cloned environment and reports toolchain readiness.
+- **[`scripts/check-env.ps1`](./scripts/check-env.ps1)**: Quick health check for Git, Node, pnpm, Python, and uv.
+- **[`scripts/verify.ps1`](./scripts/verify.ps1)**: Central verification runner checking git state, untracked secrets, `components.json`, skill frontmatter integrity, and project test suites.
+- **[`scripts/git-cleanup.ps1`](./scripts/git-cleanup.ps1)**: Prunes merged local/remote `step/*` branches, stale remote tracking refs, and orphaned git worktrees.
+
+---
+
+## Starting a New Project From This Starter
+
+1. Clone this repository into your new project directory.
+2. Run `.\scripts\bootstrap.ps1` to verify local tooling.
+3. Complete [`CONTEXT.md`](./CONTEXT.md) with your project domain, actors, constraints, and non-goals.
+4. Review [`DESIGN.md`](./DESIGN.md) and customize project-specific color/font tokens while preserving the Phosphor Iconography System and motion rules.
+5. Copy `.agents/mcp_config.json.example` to `.agents/mcp_config.json` if configuring project-specific MCP credentials.
+6. Create `docs/steps/01-<slug>.md` from [`docs/steps/00-plan-template.md`](./docs/steps/00-plan-template.md) on a dedicated `step/01-<slug>` branch.
+7. Build, verify in a live browser, capture product screenshots into `docs/assets/`, and replace this `README.md` with your product's living documentation.
+
+---
+
+## Core Documents
 
 | Document | Purpose |
 |---|---|
-| [`AGENTS.md`](./AGENTS.md) | Agent working agreement & resource catalog |
-| [`BUILD_PROTOCOL.md`](./BUILD_PROTOCOL.md) | 10-stage development methodology & PR workflow |
-| [`CONTEXT.md`](./CONTEXT.md) | Project domain, users, constraints, non-goals |
-| [`DESIGN.md`](./DESIGN.md) | Design principles and rules |
-
----
-
-## Project documentation
-
-| Location | Contains |
-|---|---|
-| `docs/adr/` | Architecture Decision Records |
-| `docs/steps/` | Step-by-step engineering log |
-| `docs/agents/file-structure.md` | Functional directory layout and placement rules |
-| `docs/agents/skills.md` | Available skills |
-| `docs/agents/mcps.md` | Available MCPs |
-| `docs/agents/issue-tracker.md` | Issue tracking approach |
-| `docs/agents/domain.md` | Domain knowledge guidance |
-
----
-
-## Skills
-
-Skills are task-specific instruction sets for the agent.
-
-**Environment-level skills** (provided by Antigravity, not this repository):
-- Antigravity built-in skills
-- Matt Pocock engineering skills
-- Anthropic frontend-design skill
-
-**Project-local skills** (in `.agents/skills/`):
-- `design-system` — Keep UI work aligned with the project design system.
-- `browser-verification` — Standard browser verification workflow.
-- `project-bootstrap` — Initialize a real project from this starter.
-
-See [`docs/agents/skills.md`](./docs/agents/skills.md) for the full reference.
-
-## MCPs
-
-MCPs provide external capabilities to the agent.
-
-**Environment-level MCPs** (already available):
-- shadcn MCP
-- GitHub MCP
-
-**Project-specific MCPs** are documented in `.agents/mcp_config.json` (not committed — see `.agents/mcp_config.json.example`).
-
-See [`docs/agents/mcps.md`](./docs/agents/mcps.md) for the full reference.
-
----
-
-## Design
-
-Design principles are in [`DESIGN.md`](./DESIGN.md).
-
-The short version: modern, minimal, calm, content-first. Prefer shadcn-style interfaces. Centralize tokens. Avoid visual noise.
-
-Visual changes must be verified in a browser before a step is complete.
-
----
-
-## Verification
-
-Verification is required at every meaningful step.
-
-The standard workflow:
-1. Run relevant tests and checks.
-2. `git status` — confirm only expected files changed.
-3. `git diff` — inspect the diff line by line.
-4. Run the application (when relevant).
-5. Verify in a browser (when relevant).
-6. Report what was actually checked.
-
-`scripts/verify.ps1` is the conventional entry point. Real projects customize it for their stack.
-
----
-
-## Scripts
-
-| Script | Purpose |
-|---|---|
-| `scripts/bootstrap.ps1` | Environment inspection and setup guidance |
-| `scripts/check-env.ps1` | Quick environment health check |
-| `scripts/verify.ps1` | Project verification entry point |
+| [`AGENTS.md`](./AGENTS.md) | Authoritative agent working agreement, standing rules, and full skill index |
+| [`BUILD_PROTOCOL.md`](./BUILD_PROTOCOL.md) | 10-stage development loop, post-merge branch pruning, and doc mandates |
+| [`CONTEXT.md`](./CONTEXT.md) | Project domain, users, terminology, constraints, and non-goals |
+| [`DESIGN.md`](./DESIGN.md) | Design philosophy, Phosphor Iconography System, typography, and motion rules |
+| [`docs/agents/skills.md`](./docs/agents/skills.md) | Detailed reference for all 70+ local skills |
+| [`docs/agents/mcps.md`](./docs/agents/mcps.md) | MCP server reference and setup guide |
+| [`docs/agents/file-structure.md`](./docs/agents/file-structure.md) | Functional directory layout and file placement rules |

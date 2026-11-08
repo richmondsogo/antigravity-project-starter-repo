@@ -1,18 +1,35 @@
 {
-  "_comment": "Copy this file to mcp_config.json and fill in project-specific values. Never commit mcp_config.json — it is gitignored.",
+  "_comment": "Copy this file to .agents/mcp_config.json and enable the servers your project needs. Never commit .agents/mcp_config.json with real secrets — it is gitignored.",
   "mcpServers": {
-    "_note_existing_environment_mcps": {
-      "_comment": "The following MCPs are already provided by the Antigravity environment. Do not redeclare them here unless you need to override configuration.",
-      "shadcn": "already available via Antigravity",
-      "github": "already available via Antigravity"
+    "_note_environment_mcps": {
+      "_comment": "Antigravity provides built-in MCPs (shadcn, context7, chrome-devtools-mcp, playwright, Neon, awwwards). Only uncomment entries below if you are running in a harness without built-in servers or overriding configuration."
     },
-    "_example_project_mcp": {
-      "_comment": "Replace this block with a real MCP entry when the project requires one. Use environment variables for all sensitive values — never hardcode credentials.",
+    "context7": {
       "command": "npx",
-      "args": ["-y", "your-mcp-package"],
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": ["-y", "shadcn@latest", "mcp"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@executeautomation/playwright-mcp-server"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "API_KEY": "${YOUR_API_KEY}"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
+    },
+    "neon": {
+      "command": "npx",
+      "args": ["-y", "@neondatabase/mcp-server-neon", "start", "${NEON_API_KEY}"]
     }
   }
 }
