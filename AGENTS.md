@@ -133,6 +133,7 @@ Every skill below lives inside `.agents/skills/` and travels with the repository
 |---|---|---|
 | `ui-ux-pro-max` | [`.agents/skills/ui-ux-pro-max/SKILL.md`](./.agents/skills/ui-ux-pro-max/SKILL.md) | Flagship searchable UI/UX engine (79 styles, 192 product palettes, 74 font pairings, 119 UX rules, 17 GSAP presets, 22 stacks). |
 | `design-system` | [`.agents/skills/design-system/SKILL.md`](./.agents/skills/design-system/SKILL.md) | Ground UI in project tokens and the **Phosphor Iconography System** (`regular`, `duotone`, `bold`, `fill`). |
+| `daybreak-design-skill` | [`.agents/skills/daybreak-design-skill/SKILL.md`](./.agents/skills/daybreak-design-skill/SKILL.md) | Quiet, dense, type-driven editorial reader design system inspired by `brianlovin.com/hn` and Danish functionalism. |
 | `minimalist-ui` | [`.agents/skills/minimalist-ui/SKILL.md`](./.agents/skills/minimalist-ui/SKILL.md) | Warm monochrome palettes, editorial typography, flat `1px` bento grids (Linear/Notion/Stripe Press aesthetic). |
 | `tastemaker` | [`.agents/skills/tastemaker/SKILL.md`](./.agents/skills/tastemaker/SKILL.md) | Art-direction engine by `codeswithroh` for contrast-verified palettes, typography, and hallmark layouts. |
 | `taste-skill` | [`.agents/skills/taste-skill/SKILL.md`](./.agents/skills/taste-skill/SKILL.md) | Comprehensive layout, card, copy, and visual craft references (`leonxlnx/taste-skill`). |

@@ -2,7 +2,7 @@
 
 A portable, self-contained engineering operating system for software projects built with Antigravity and agentic coding assistants.
 
-Clone this repository onto any machine and start building immediately with a complete suite of **266 offline UI/UX, Motion, Framework, Cloud & Data, and Engineering Workflow skills**, a pre-configured **Phosphor Iconography System** (`components.json`), ready-to-use **MCP templates**, and strict **Git & Documentation hygiene**.
+Clone this repository onto any machine and start building immediately with a complete suite of **267 offline UI/UX, Motion, Framework, Cloud & Data, and Engineering Workflow skills**, a pre-configured **Phosphor Iconography System** (`components.json`), ready-to-use **MCP templates**, and strict **Git & Documentation hygiene**.
 
 ---
 
@@ -24,11 +24,12 @@ flowchart LR
 
 ## What Travels With This Repository
 
-### 1. Portable Agent Skills Suite (`.agents/skills/`) — 266 Skills
+### 1. Portable Agent Skills Suite (`.agents/skills/`) — 267 Skills
 No global machine setup required. All skills live inside `.agents/skills/` and work out of the box:
 - **UI/UX Pro Max (`ui-ux-pro-max`)**: Local Python search engine (`scripts/search.py`) with 79 styles, 192 product palettes, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, and 22 technology stacks.
 - **Design & Art Direction**:
   - `design-system` — Project token grounding + **Phosphor Icons** semantic weight hierarchy (`regular`, `duotone`, `bold`, `fill`).
+  - `daybreak-design-skill` — Quiet, dense, type-driven editorial reader design system inspired by `brianlovin.com/hn` and Danish functionalism.
   - `logo-design` — Senior brand-mark & identity design system with SVG generator and audit tools.
   - `minimalist-ui` — Warm monochrome palettes, editorial serif/sans hierarchy, flat `1px` border bento architectures.
   - `tastemaker` (`codeswithroh`) & `taste-skill` (`leonxlnx`) — Anti-slop art direction, contrast-verified palettes, hallmark layouts.
