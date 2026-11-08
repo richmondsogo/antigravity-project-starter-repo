@@ -119,15 +119,15 @@ This is the initial planning document. It should contain:
 
 ---
 
-## Step 9: Replace the README
+## Step 9: Replace the README & Maintain Visual Proof
 
-The starter README describes the starter, not your project. Replace it with a project-specific README once the above steps are complete.
+The starter README describes the starter, not your project. Replace it with a project-specific `README.md` once the above steps are complete, and **update it on every pass and every PR merge** so documentation is never stale.
 
-The project README should describe:
-- What the project is.
-- How to set it up locally.
-- How to run it.
-- How to run tests.
+The project `README.md` must always include:
+- **Product Images / Screenshots in Action (Mandatory)**: Every single time `README.md` is authored or updated for a project with a UI, CLI, or visible output, embed real screenshots or visual captures showing the product in action (saved in `docs/assets/` or `public/`).
+- What the project is and the core problem it solves.
+- Architecture overview and tech stack.
+- How to set it up locally, run it, and run verification/tests (`./scripts/verify.ps1`).
 
 ---
 

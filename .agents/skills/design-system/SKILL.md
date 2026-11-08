@@ -1,61 +1,81 @@
 ---
 name: design-system
 description: >
-  Keep UI implementation aligned with the project design system.
+  Keep UI implementation aligned with the project design system, Phosphor iconography weights, typographic tokens, and motion rules.
   Use when creating or modifying any visual component, layout, or styling.
 ---
 
 # Design System Skill
 
-This skill ensures UI implementation stays coherent with the established project design system.
+This skill ensures UI implementation stays coherent with the established project design system in `DESIGN.md`.
 
-It complements Anthropic's frontend-design skill, which handles general frontend design patterns.
-Use both together: this skill provides project-specific grounding; the frontend-design skill provides broader technique.
+It works alongside our specialist design and motion skills (`ui-ux-pro-max`, `minimalist-ui`, `tastemaker`, `emil-design-eng`, `better-interface`, and `frontend-design`): this skill provides project-specific token, component, and iconography grounding.
 
 ---
 
-## Before touching UI
+## Before Touching UI
 
-1. **Read `DESIGN.md`** — understand the project's principles, constraints, and what to avoid.
-
-2. **Inspect existing components** — look in the project's component directory before creating anything new.
-   - Is there an existing component that does what you need?
-   - Can an existing component be composed to cover the case?
+1. **Read `DESIGN.md`** — understand the project's visual language, typography, spacing, border radius philosophy, and anti-slop blocklist.
+2. **Inspect existing components & `components.json`** — look in the project's component directory before creating anything new.
+   - Can an existing primitive or component be composed to cover the case?
    - Only create a new component when existing ones genuinely cannot serve the need.
-
 3. **Check existing design tokens** — colors, spacing, radius, typography.
-   - Do not introduce new values inline when a token exists.
-   - Do not invent new tokens without a clear reason.
+   - Never introduce hardcoded hex values or arbitrary pixel sizes inline when a token exists.
 
 ---
 
-## When implementing UI
+## Iconography System (`@phosphor-icons/react`)
 
-4. **Prefer shadcn/Base UI primitives** — use the shadcn MCP to find and install appropriate components.
-   ```
-   Need a component
-       ↓
-   Check existing project components
-       ↓
-   Use shadcn MCP to find a suitable primitive
-       ↓
-   Install and compose it
-       ↓
-   Apply project tokens, not custom ad-hoc values
-   ```
+Unless the project explicitly overrides its icon library, use **Phosphor Icons** (`@phosphor-icons/react`, configured via `"iconLibrary": "phosphor"` in `components.json`). Never mix icon libraries (e.g., do not mix `lucide-react` with Phosphor) and never leave icons on accidental default props.
 
-5. **Reuse established interaction patterns** — don't improvise hover states, focus rings, or transitions if the project already has them.
+### 1. Semantic Weight Hierarchy
 
-6. **Avoid unnecessary visual novelty** — do not add gradients, shadows, glass effects, or decorative flourishes unless they are already part of the design system and serve a clear purpose.
+| Role | `weight` | Styling Pattern | Examples |
+| :--- | :--- | :--- | :--- |
+| **Inactive Navigation / Chrome** | `"regular"` | `size-4 shrink-0 text-muted-foreground` | Inactive sidebar items (`Faders`, `Coins`, `Swatches`), header settings trigger |
+| **Active Navigation** | `"duotone"` | `size-4 shrink-0 text-accent fill-accent/20` | Active sidebar tab (`weight={isActive ? "duotone" : "regular"}`) |
+| **Ambient Metadata / Context** | `"duotone"` | `size-3.5` or `size-4 shrink-0 text-muted-foreground fill-accent/20` | Domain rows (`GlobeHemisphereWest`), timestamps (`ClockCounterClockwise`) |
+| **Micro-UI & Button Actions (`<= 14px`)** | `"bold"` | `h-3.5 w-3.5` (or `h-3 w-3`) `shrink-0` | Carets (`CaretUpDown`), checkmarks (`Check`), arrows (`ArrowRight`, `ArrowsLeftRight`, `ArrowUUpLeft`), search (`MagnifyingGlass`), action buttons (`DownloadSimple`, `UploadSimple`, `ArrowCounterClockwise`, `ArrowSquareOut`) |
+| **Callouts, Warnings & Empty/Error States** | `"fill"` | `h-3.5 w-3.5` to `h-10 w-10 shrink-0 text-warning` or `text-destructive` | Alert banners, validation warnings, fatal load states (`WarningCircle`) |
+
+### 2. Core Implementation Patterns
+
+- **Active / Inactive Navigation (`regular` → `duotone`)**:
+  ```jsx
+  <Icon
+    aria-hidden="true"
+    weight={isActive ? "duotone" : "regular"}
+    className={isActive ? "size-4 shrink-0 text-accent fill-accent/20" : "size-4 shrink-0 text-muted-foreground"}
+  />
+  ```
+- **Ambient Metadata (`duotone` with `fill-accent/20`)**:
+  ```jsx
+  <GlobeHemisphereWest
+    weight="duotone"
+    className="size-3.5 text-muted-foreground fill-accent/20 shrink-0"
+    aria-hidden="true"
+  />
+  ```
+- **Micro-Affordances (`<= 14px` → `bold`)**:
+  At `12px`–`14px` (`h-3 w-3` / `h-3.5 w-3.5`), `"regular"` strokes look thin and washed out. Always use `weight="bold"` for small interactive controls (`CaretUpDown`, `Check`, `ArrowRight`, `ArrowSquareOut`).
+- **Layout & Accessibility**:
+  - Always include `shrink-0` on every icon inside flex/grid containers.
+  - Pass `aria-hidden="true"` on decorative or text-paired icons; for icon-only buttons, keep `aria-hidden="true"` on the icon and place `aria-label` + `title` on the parent `<Button>`.
 
 ---
 
-## After implementing UI
+## When Implementing UI
 
-7. **Verify in the browser** — use the browser-verification skill (`.agents/skills/browser-verification/SKILL.md`) to confirm:
-   - The component renders correctly.
-   - Spacing and typography match the design system.
-   - Responsive behaviour is acceptable.
-   - No unintended visual regressions exist on surrounding elements.
+4. **Prefer shadcn / Base UI primitives** — use the `shadcn` MCP and `.agents/skills/shadcn/SKILL.md` to find, install, and compose primitives.
+5. **Enforce Typography & Tabular Numerals** — route text through centralized typography primitives/tokens; apply `tabular-nums` to all numbers, counts, prices, and timestamps.
+6. **Restrained Motion** — follow `emil-design-eng`: transitions between `120ms`–`220ms`, custom cubic-bezier easing, animating only `opacity` and `transform`, and honoring `prefers-reduced-motion`.
 
-8. **Review the diff** — inspect every line of changed CSS/styles and confirm no ad-hoc values crept in.
+---
+
+## After Implementing UI
+
+7. **Verify in a real browser** — run `.agents/skills/browser-verification/SKILL.md` and audit quality with `.agents/skills/better-interface/SKILL.md`:
+   - Confirm layout, spacing, and Phosphor icon weights render cleanly.
+   - Check responsive viewports and keyboard focus states.
+   - Capture updated product screenshots for `README.md` whenever user-facing UI changes.
+8. **Review the diff** — inspect every line of changed CSS/JSX to ensure no ad-hoc colors, raw hex strings, or unaligned spacing values crept in.
