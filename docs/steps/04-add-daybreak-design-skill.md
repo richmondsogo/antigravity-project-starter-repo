@@ -30,3 +30,12 @@ Locate and copy the `daybreak-design-skill` (Daybreak's quiet, dense, type-drive
 1. Verification check `scripts/verify.ps1` runs clean with 0 failures.
 2. Skill exists at `.agents/skills/daybreak-design-skill/SKILL.md`.
 3. Total skills in repo: 267.
+
+---
+
+## Provenance
+
+- **First Commit SHA**: `c631f3e`
+- **Last Commit SHA**: `c631f3e`
+- **Merge Commit SHA**: `59ca00b`
+
