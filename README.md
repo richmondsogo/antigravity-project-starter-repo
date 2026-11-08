@@ -42,7 +42,22 @@ No global machine setup required. All skills live inside `.agents/skills/` and w
 - **Motion & GSAP Engineering (Emil Kowalski & GreenSock)**:
   - `emil-design-eng`, `animate`, `review-animations`, `improve-animations`, `find-animation-opportunities`, `animation-performance`.
   - Official GreenSock suite: `gsap-core`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-react`, `gsap-plugins`, `gsap-performance`, `gsap-frameworks`, `gsap-utils`, and `cinematic-gsap-lenis-motion-system`.
-- **Engineering Workflow & Alignment (Matt Pocock & Superpowers)**:
+- **Superpowers Engineering Loop**:
+  - `using-superpowers` — Workflow harness and skill dispatching router.
+  - `brainstorming` — Socratic product exploration, requirements shaping, and visual companion.
+  - `writing-plans` & `executing-plans` — Granular technical design specs, bite-sized tasks, and execution gates.
+  - `subagent-driven-development` & `dispatching-parallel-agents` — Worktree and subagent orchestrations.
+  - `systematic-debugging` & `diagnosing-superpowers` — 4-phase root-cause diagnosis.
+  - `test-driven-development` — Red-green-refactor cycle.
+  - `verification-before-completion` — Strict proof and evidence before assertions.
+  - `requesting-code-review` & `receiving-code-review` — Two-axis diff review and pushback handling.
+  - `finishing-a-development-branch` & `using-git-worktrees` — Worktree management and merge protocols.
+  - `writing-skills` — Skill authoring and benchmarking.
+- **Chrome DevTools & Web Performance**:
+  - `chrome-devtools`, `a11y-debugging`, `cookie-debugging`, `memory-leak-debugging`, `debug-optimize-lcp`, `troubleshooting`.
+- **Modern Web & Platform SDKs**:
+  - `modern-web-guidance`, `chrome-extensions`, `google-antigravity-sdk`, `gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`, `write-swift`.
+- **Engineering Workflow & Alignment (Matt Pocock & Alignment)**:
   - `ask-matt`, `grill-me`, `to-spec`, `to-tickets`, `triage`, `implement`, `tdd`, `code-review`, `diagnosing-bugs`, `prototype`, `improve-codebase-architecture`, `domain-modeling`, `state-machine`, `resolving-merge-conflicts`, `wayfinder`.
 
 ### 2. Baseline UI & MCP Configs
