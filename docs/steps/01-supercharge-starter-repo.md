@@ -65,7 +65,8 @@ Upgrade `starter-repo` into a self-contained, portable powerhouse repository equ
 
 ## Diff / Checkpoint
 
-- Pull Request URL: Local merge (`--no-ff`) to `master` and pushed to `origin/master`
+- First commit SHA: `76b7f83`
+- Last commit SHA: `8b5f6c3`
 - Merge strategy: Standard merge commit (`--no-ff`)
 - Step branch pruned (local & remote): Yes
 
