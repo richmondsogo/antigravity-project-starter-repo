@@ -1,82 +1,56 @@
 # MCP Reference
 
-This document describes the MCP (Model Context Protocol) servers available in this project and how to work with them.
+This document describes the Model Context Protocol (MCP) servers available in this starter and how to configure them across machines.
 
 ---
 
-## Environment-level MCPs
+## 1. Environment & Portable MCP Servers
 
-These are provided by the Antigravity environment and are available in every project without any configuration.
+ `.agents/mcp_config.json.example` includes ready-to-use templates for the core MCP servers used in our engineering and design workflows:
 
-| MCP | Purpose |
-|---|---|
-| **shadcn MCP** | Browse, search, and install shadcn/ui components. Use for all UI component work. |
-| **GitHub MCP** | Interact with GitHub repositories — issues, PRs, code search. |
-
-Do not redeclare these in `.agents/mcp_config.json`. They are already present.
-
----
-
-## Project-specific MCPs
-
-Project-specific MCPs are configured in `.agents/mcp_config.json`.
-
-That file is gitignored. The structure is documented in `.agents/mcp_config.json.example`.
-
-When setting up a new project, copy the example file and fill in only what the project actually needs.
+| MCP Server | Purpose | When to Use |
+|---|---|---|
+| **Context7 (`context7`)** | Live library & framework documentation lookup (`resolve-library-id` → `query-docs`). | **Mandatory** whenever working with any library, SDK, framework, or CLI tool (React, Next.js, Tailwind, Drizzle, Prisma, GSAP, etc.). |
+| **shadcn (`shadcn`)** | Browse, inspect, and install shadcn/ui primitives configured via [`components.json`](../../components.json). | Whenever building or composing UI components. |
+| **Chrome DevTools (`chrome-devtools-mcp`)** | Live DOM/CSS inspection, console logs, network requests, performance traces, and Lighthouse audits. | During `browser-verification`, `better-interface` scoring, and debugging. |
+| **Playwright (`playwright`)** | Automated browser navigation, interaction testing, and screenshot capture. | E2E verification and capturing product screenshots for `README.md`. |
+| **Awwwards (`awwwards`)** | Search award-winning reference sites, motion DNA, scroll maps, and GSAP/Three.js stubs. | When art-directing landing pages (`build-awwwards-quality-sites`, `tastemaker`). |
+| **Neon (`neon`)** | Serverless Postgres branch management, schema inspection, migrations, and SQL tuning. | When building full-stack Postgres applications. |
+| **GitHub (`github`)** | Repository issues, Pull Requests, reviews, and branch management. | During `to-spec`, `triage`, and Stage 9–10 of `BUILD_PROTOCOL.md`. |
 
 ---
 
-## When to add an MCP
+## 2. Setting Up on a New Machine
 
-```
-Need an external capability
-        ↓
-Check if an existing environment MCP covers it
-        ↓
-Use existing MCP if appropriate
-        ↓
-Only add a new MCP when there is a concrete, demonstrated need
-```
-
-A new MCP is justified when:
-- The capability is not available through any existing MCP.
-- The project will use it concretely (not speculatively).
-- The MCP is well-maintained and appropriate for the project.
-
-Do not add MCPs "just in case." Each MCP is a dependency with maintenance and security implications.
+1. If you are running inside **Antigravity**, built-in servers (`context7`, `shadcn`, `chrome-devtools-mcp`, `playwright`, `Neon`, `awwwards`) are already registered.
+2. If you are cloning this starter onto a fresh machine or using another harness (Claude Code, Cursor, Windsurf):
+   ```powershell
+   Copy-Item .agents\mcp_config.json.example .agents\mcp_config.json
+   ```
+3. Fill in any required environment variables (such as `GITHUB_PERSONAL_ACCESS_TOKEN` or `NEON_API_KEY`) using environment variables rather than hardcoding secrets.
 
 ---
 
-## When not to add an MCP
+## 3. UI Component Workflow (`components.json` + Phosphor Icons)
 
-- When an existing MCP already covers the need.
-- When the task can be accomplished with standard tooling (scripts, CLI commands).
-- When the project does not yet have a concrete need for the capability.
-- When the MCP would require hardcoded credentials.
-
----
-
-## UI component workflow
+The root [`components.json`](../../components.json) is pre-configured with `"iconLibrary": "phosphor"`:
 
 ```
 Need a UI component
         ↓
 Inspect existing project components first
         ↓
-Use shadcn MCP to find an appropriate primitive
+Use shadcn MCP to inspect/install the primitive
         ↓
-Install and compose it
+Pair with @phosphor-icons/react using DESIGN.md semantic weights (regular, duotone, bold, fill)
         ↓
-Follow DESIGN.md
+Verify in live browser & capture README screenshots
 ```
 
 ---
 
-## Security
+## 4. Security Rules
 
-- Never commit API keys, tokens, or credentials to `.agents/mcp_config.json` or any other file.
-- Use environment variables for all sensitive values.
-- The `.agents/mcp_config.json` file is gitignored for this reason.
-- Prefer the minimum required permissions for any MCP.
-- Review what permissions an MCP requests before installing it.
+- **Never commit `.agents/mcp_config.json`** — it is gitignored and verified by `scripts/verify.ps1`.
+- Never hardcode API keys, tokens, or connection strings in any committed file.
+- Only enable the MCP servers that your active project actually needs.

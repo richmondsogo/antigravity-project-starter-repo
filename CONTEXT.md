@@ -1,11 +1,8 @@
 # Project Context
 
-> This is the authoritative source of project/domain knowledge for this repository.
+> This is the authoritative source of project and domain knowledge for this repository.
 >
-> Keep it synchronized with architectural decisions in `docs/adr/`.
->
-> Agents should read this at the start of each session to avoid repeatedly
-> rediscovering terminology, constraints, and intent.
+> **Standing Rule**: Keep this file synchronized on every implementation pass and every PR merge alongside `README.md`, `DESIGN.md`, and `docs/adr/`. Documentation must never be stale.
 
 ---
 
@@ -15,15 +12,15 @@
 
 ## Users
 
-<!-- Who uses this? What are their goals? -->
+<!-- Who uses this? What are their concrete goals and workflows? -->
 
 ## Core Problem
 
 <!-- What problem does this solve? Why does it matter? -->
 
-## Domain
+## Domain & Architecture
 
-<!-- Relevant domain knowledge an agent needs to understand the problem space. -->
+<!-- Relevant domain knowledge, data flow, and system boundaries an agent needs to understand. -->
 
 ## Important Terms
 
@@ -37,17 +34,17 @@
 ## Actors
 
 <!-- Who or what interacts with the system? -->
-<!-- Examples: users, admins, external services, scheduled jobs. -->
+<!-- Examples: users, admins, external APIs, background jobs. -->
 
-## Constraints
+## Constraints & Guardrails
 
 <!-- Hard constraints the project must respect. -->
-<!-- Examples: runtime, latency, regulatory, platform, accessibility. -->
+<!-- Examples: runtime, latency, deterministic parsing before LLM fallback, privacy, offline support. -->
 
 ## Non-Goals
 
 <!-- What is explicitly out of scope? -->
-<!-- Document this to prevent scope creep. -->
+<!-- Document this to prevent speculative scope creep. -->
 
 ## Important Decisions
 

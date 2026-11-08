@@ -11,7 +11,7 @@ Agents and human contributors must follow these conventions to keep the codebase
 1. **Predictable locations**: Every file belongs in a clearly defined directory based on its function.
 2. **Clean root**: The repository root contains only essential configuration and top-level entry documents.
 3. **No stray files**: Do not drop temporary scripts, scratchpads, test output, or experimental files into arbitrary directories.
-4. **Functional flexibility**: The structure is functional, not rigid. Project-specific build and tooling files (such as package manifests, compiler configs, and linter configs) reside where their ecosystems expect them without unnecessary hurdles.
+4. **Functional flexibility**: The structure is functional, not rigid. Project-specific build and tooling files (such as package manifests, `components.json`, compiler configs, and linter configs) reside where their ecosystems expect them without unnecessary hurdles.
 
 ---
 
@@ -19,22 +19,28 @@ Agents and human contributors must follow these conventions to keep the codebase
 
 ```
 starter-repo/
-├── .agents/                 # Agent intelligence configuration and local skills
-│   ├── skills/              # Reusable agent skills
+├── .agents/                 # Portable agent intelligence, skills, and MCP templates
+│   ├── skills/              # 70+ reusable design, motion, testing, and workflow skills
 │   └── mcp_config.json      # Local MCP configuration (gitignored, see .example)
-├── docs/                    # Persistent documentation
+├── docs/                    # Persistent documentation (updated on every pass & PR merge)
 │   ├── adr/                 # Architecture Decision Records
 │   ├── agents/              # Agent operating guides and reference docs
+│   ├── assets/              # Product screenshots & architecture visuals for README.md
 │   └── steps/               # Sequential step execution logs
-├── scripts/                 # Automation and developer tooling scripts
+├── scripts/                 # Automation, verification, and git hygiene scripts
+│   ├── bootstrap.ps1        # Toolchain setup inspection
+│   ├── check-env.ps1        # Environment health check
+│   ├── git-cleanup.ps1      # Post-merge branch & worktree pruning
+│   └── verify.ps1           # Central verification runner
 ├── src/                     # Application source code (created as project evolves)
 ├── tests/                   # Automated test suites (unit, integration, e2e)
 ├── .tmp/                    # Local temporary workspace & scratchpads (gitignored)
 ├── AGENTS.md                # Agent working agreement & full resource catalog
-├── BUILD_PROTOCOL.md        # 10-stage development methodology
+├── BUILD_PROTOCOL.md        # 10-stage development methodology & git hygiene
 ├── CONTEXT.md               # Authoritative project domain and context
-├── DESIGN.md                # Design philosophy and visual rules
-└── README.md                # Human entry point and project overview
+├── DESIGN.md                # Design philosophy, Phosphor Icons system & visual rules
+├── README.md                # Human entry point (must include product screenshots)
+└── components.json          # Pre-configured shadcn/ui manifest ("iconLibrary": "phosphor")
 ```
 
 ---
@@ -48,7 +54,7 @@ The root directory is reserved for core project documentation, version control c
 **Permitted at root:**
 - Core operating documents: `AGENTS.md`, `BUILD_PROTOCOL.md`, `CONTEXT.md`, `DESIGN.md`, `README.md`.
 - Git configuration: `.gitignore`, `.gitattributes`.
-- Ecosystem configuration and manifests as needed by your stack (e.g., `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`).
+- Ecosystem configuration and manifests as needed by your stack (e.g., `components.json`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`).
 
 **Prohibited at root:**
 - Ad-hoc scripts (e.g., `test.py`, `run.js`).
@@ -57,22 +63,23 @@ The root directory is reserved for core project documentation, version control c
 
 ---
 
-### `.agents/` — Agent Intelligence
+### `.agents/` — Portable Agent Intelligence
 
-Contains repository-local agent configuration:
+Contains repository-local agent configuration that travels with the project across machines:
 - `.agents/skills/<skill-name>/SKILL.md` — Reusable local agent skills.
 - `.agents/mcp_config.json.example` — Committed template for local MCP servers.
 - `.agents/mcp_config.json` — Gitignored local MCP server credentials and settings.
 
 ---
 
-### `docs/` — Repository Documentation
+### `docs/` — Living Repository Documentation
 
-All persistent project documentation lives here:
+All persistent project documentation lives here and must be kept synchronized on every pass and PR merge:
 - `docs/adr/` — Architecture Decision Records following `docs/adr/0000-template.md`.
 - `docs/steps/` — Step execution logs following `docs/steps/00-plan-template.md`.
+- `docs/assets/` — Product screenshots and visual captures embedded in `README.md`.
 - `docs/agents/` — Reference documents for agents:
-  - `skills.md` — Skills reference and usage guidelines.
+  - `skills.md` — Complete skills catalog and combination patterns.
   - `mcps.md` — MCP server catalog and security guidelines.
   - `domain.md` — Domain knowledge maintenance guide.
   - `issue-tracker.md` — Issue tracking strategy.
@@ -80,35 +87,26 @@ All persistent project documentation lives here:
 
 ---
 
-### `scripts/` — Automation & Tooling
+### `scripts/` — Automation & Git Hygiene
 
-Shell and PowerShell scripts for bootstrapping, environment validation, and verification:
+PowerShell scripts for bootstrapping, environment validation, git cleanup, and verification:
 - `scripts/bootstrap.ps1` — Environment inspection and setup.
 - `scripts/check-env.ps1` — Fast environment health check.
 - `scripts/verify.ps1` — Verification runner entry point.
+- `scripts/git-cleanup.ps1` — Post-merge branch deletion and worktree pruning.
 
 ---
 
-### `src/` — Application Source Code
+### `src/` & `tests/`
 
-Created when implementing a project on top of this starter:
-- Subdivide logically by domain, feature, or architectural layer.
-- Keep source files cohesive and focused.
-- Do not mix tests or temporary mock files directly in source directories unless following an established framework standard (e.g., adjacent `.test.ts` files).
-
----
-
-### `tests/` — Automated Tests
-
-All test suites that verify application behavior:
-- Unit tests, integration tests, and end-to-end tests.
-- Fixtures and test helpers belong in `tests/fixtures/` or `tests/helpers/`.
+- **`src/`**: Subdivide logically by domain, feature, or architectural layer.
+- **`tests/`**: Automated unit, integration, and end-to-end tests (`tests/fixtures/` for real data fixtures).
 
 ---
 
 ### `.tmp/` & Scratchpads — Temporary Work
 
-- Any temporary files, experimental scratch scripts, or scratch notes must go to `.tmp/` (which is gitignored) or the agent brain scratch directory.
+- Any temporary files, regex/parser prototypes, or experimental scripts must go to `.tmp/` (which is gitignored) or the agent brain scratch directory.
 - Never commit `.tmp/` files to the repository.
 
 ---
@@ -119,10 +117,11 @@ All test suites that verify application behavior:
 |---|---|---|
 | Architecture decision record | `docs/adr/` | `docs/adr/0001-use-postgres.md` |
 | Step execution plan & log | `docs/steps/` | `docs/steps/01-auth-flow.md` |
+| Product screenshot for README | `docs/assets/` | `docs/assets/dashboard-preview.png` |
 | Agent reference document | `docs/agents/` | `docs/agents/api-contracts.md` |
 | New reusable agent skill | `.agents/skills/<name>/` | `.agents/skills/data-migration/SKILL.md` |
 | Verification or tooling script | `scripts/` | `scripts/verify.ps1` |
 | Application source code | `src/` (or stack equivalent) | `src/auth/service.ts` |
 | Automated test file | `tests/` (or adjacent per stack) | `tests/auth/service.test.ts` |
 | Temporary experiment or scratchpad | `.tmp/` or agent brain scratch | `.tmp/scratch-query.sql` |
-| Tooling/ecosystem manifest | Root `/` | `package.json`, `pyproject.toml` |
+| Tooling/ecosystem manifest | Root `/` | `components.json`, `package.json` |

@@ -51,10 +51,12 @@ dist/
 .ruff_cache/
 .pytest_cache/
 
-# ─── Build artifacts ─────────────────────────────────────────────────────────
+# ─── Build artifacts & Temporary Workspaces ──────────────────────────────────
 *.log
 *.tmp
 *.temp
+.tmp/
+.worktrees/
 coverage/
 .coverage
 htmlcov/

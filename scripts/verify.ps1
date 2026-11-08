@@ -9,7 +9,7 @@
     Real projects should customize the "Project verification" section
     for their specific tools and commands.
 
-    The starter-level checks (git state, no tracked secrets) always run.
+    The starter-level checks (git state, no tracked secrets, skills & config integrity) always run.
     Project-level checks are delegated to project-defined commands.
 
 .NOTES
@@ -25,6 +25,8 @@
         Run-Check "Python lint"  { uv run ruff check . }
         Run-Check "Type check"   { uv run mypy . }
 #>
+
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host ""
 Write-Host "Project Verification" -ForegroundColor Cyan
@@ -52,8 +54,9 @@ function Run-Check {
 
     Write-Host ("  ..  {0}" -f $Label) -ForegroundColor DarkGray
     try {
+        $global:LASTEXITCODE = 0
         $null = & $Block 2>&1
-        if ($LASTEXITCODE -eq 0 -or $LASTEXITCODE -eq $null) {
+        if ($LASTEXITCODE -eq 0 -or $null -eq $LASTEXITCODE) {
             Write-Host ("  OK  {0}" -f $Label) -ForegroundColor Green
             $script:passed++
         } else {
@@ -66,7 +69,7 @@ function Run-Check {
     }
 }
 
-# ---- Git state --------------------------------------------------------------
+# ---- Git & Repository Integrity ---------------------------------------------
 
 Write-Host "Repository state:" -ForegroundColor White
 
@@ -75,15 +78,37 @@ Run-Check "Git available" {
 }
 
 Run-Check "No obviously tracked secrets" {
-    $patterns = @("*.pem", "*.key", ".env", "*.secret")
+    $patterns = @("*.pem", "*.key", ".env", "*.secret", ".agents/mcp_config.json")
     $found    = @()
     foreach ($p in $patterns) {
         $matches = git ls-files $p 2>&1
         if ($matches -and $LASTEXITCODE -eq 0) { $found += $matches }
     }
     if ($found.Count -gt 0) {
-        Write-Host "  Possible secrets tracked by git: $($found -join ', ')" -ForegroundColor Red
-        exit 1
+        throw "Possible secrets tracked by git: $($found -join ', ')"
+    }
+}
+
+Run-Check "components.json valid & configured for Phosphor Icons" {
+    if (-not (Test-Path "components.json")) {
+        throw "components.json is missing"
+    }
+    $cfg = Get-Content "components.json" -Raw | ConvertFrom-Json
+    if (-not $cfg.iconLibrary) {
+        throw "components.json is missing iconLibrary field"
+    }
+}
+
+Run-Check "Local agent skills frontmatter integrity" {
+    $skillFiles = Get-ChildItem -Path ".agents/skills" -Filter "SKILL.md" -Recurse
+    if ($skillFiles.Count -eq 0) {
+        throw "No SKILL.md files found in .agents/skills"
+    }
+    foreach ($sf in $skillFiles) {
+        $first = (Get-Content $sf.FullName -TotalCount 1).Trim()
+        if ($first -ne "---") {
+            throw "Invalid YAML frontmatter in $($sf.FullName)"
+        }
     }
 }
 
