@@ -266,3 +266,47 @@ Every skill below lives inside `.agents/skills/` and travels with the repository
 | `performance` | [`.agents/skills/performance/SKILL.md`](./.agents/skills/performance/SKILL.md) | Web performance optimization (Core Web Vitals, bundle size, rendering speed). |
 | `security-audit` | [`.agents/skills/security-audit/SKILL.md`](./.agents/skills/security-audit/SKILL.md) | Security review across auth, input validation, secrets, and dependencies. |
 | `project-bootstrap` | [`.agents/skills/project-bootstrap/SKILL.md`](./.agents/skills/project-bootstrap/SKILL.md) | Structured process for initializing a new project cloned from this starter. |
+| `research` | [`.agents/skills/research/SKILL.md`](./.agents/skills/research/SKILL.md) | Investigate questions against high-trust primary sources with citations. |
+| `setup-matt-pocock-skills` | [`.agents/skills/setup-matt-pocock-skills/SKILL.md`](./.agents/skills/setup-matt-pocock-skills/SKILL.md) | Configure issue trackers, triage labels, and domain doc layout. |
+
+#### H. Framework & Mobile Ecosystems (Flutter, Firebase, Android, FastAPI)
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `flutter-*` (25 skills) | [`.agents/skills/flutter-apply-architecture-best-practices/SKILL.md`](./.agents/skills/flutter-apply-architecture-best-practices/SKILL.md) | Full Flutter & Dart suite: unit testing, coverage, responsive layout, routing, HTTP, JSON, static analysis, ffigen. |
+| `firebase-*` (13 skills) | [`.agents/skills/firebase_auth_basics/SKILL.md`](./.agents/skills/firebase_auth_basics/SKILL.md) | Complete Firebase suite: Auth, Firestore, Crashlytics, App Hosting, Security Rules Auditor, AI Logic. |
+| `android-cli` | [`.agents/skills/android-cli/SKILL.md`](./.agents/skills/android-cli/SKILL.md) | Android development CLI, adb workflows, deep links, and device interaction. |
+| `compose-preview` & `device-hub` | [`.agents/skills/compose-preview/SKILL.md`](./.agents/skills/compose-preview/SKILL.md) | Jetpack Compose interactive previews and connected Android device management. |
+| `fastapi` | [`.agents/skills/fastapi/SKILL.md`](./.agents/skills/fastapi/SKILL.md) | Official FastAPI best practices: Pydantic v2, streaming responses, SSE, OpenTelemetry, dependency injection. |
+| `xcode_project_setup` | [`.agents/skills/xcode_project_setup/SKILL.md`](./.agents/skills/xcode_project_setup/SKILL.md) | Modify Xcode projects (`.pbxproj`) safely to add Swift packages and link dependencies. |
+
+#### I. Cloud, BigQuery & Data Engineering (37 skills)
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `bigquery-sql` & `bigquery-ai-ml` | [`.agents/skills/bigquery-sql/SKILL.md`](./.agents/skills/bigquery-sql/SKILL.md) | SQL query optimization, time-series forecasting, outlier detection, and BigQuery ML. |
+| `data-autocleaning` | [`.agents/skills/data-autocleaning/SKILL.md`](./.agents/skills/data-autocleaning/SKILL.md) | Automated data quality, schema mapping, and pipeline transformation for BigQuery/GCS. |
+| `dataform-bigquery` & `dbt-bigquery` | [`.agents/skills/dataform-bigquery/SKILL.md`](./.agents/skills/dataform-bigquery/SKILL.md) | Data modeling, testing, and DAG orchestration with Dataform and dbt on BigQuery. |
+| `gcp-dataflow` & `gcp-managed-airflow` | [`.agents/skills/gcp-dataflow/SKILL.md`](./.agents/skills/gcp-dataflow/SKILL.md) | Apache Beam/Dataflow stream & batch processing, Cloud Composer DAG authoring and migrations. |
+| `gcp-spark` & `gcp-pipeline-orchestration` | [`.agents/skills/gcp-spark/SKILL.md`](./.agents/skills/gcp-spark/SKILL.md) | Dataproc Spark job optimization, pipeline infrastructure provisioning, and monitoring. |
+
+#### J. Science & Bioinformatics (41 skills)
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `alphafold_database_fetch_and_analyze` | [`.agents/skills/alphafold_database_fetch_and_analyze/SKILL.md`](./.agents/skills/alphafold_database_fetch_and_analyze/SKILL.md) | Fetch and analyze predicted 3D protein structures from AlphaFold DB. |
+| `chembl_database` & `pubchem_database` | [`.agents/skills/chembl_database/SKILL.md`](./.agents/skills/chembl_database/SKILL.md) | Query bioactive molecules, drug targets, bioactivities, and cheminformatics data. |
+| `pdb_database` & `pymol` | [`.agents/skills/pdb_database/SKILL.md`](./.agents/skills/pdb_database/SKILL.md) | RCSB PDB structure fetch, crystallographic inspection, and PyMOL visualization. |
+| `uniprot_database` & `protein_sequence_msa` | [`.agents/skills/uniprot_database/SKILL.md`](./.agents/skills/uniprot_database/SKILL.md) | Protein sequence annotation, functional domains, and multiple sequence alignments. |
+| `literature_search_*` | [`.agents/skills/literature_search_arxiv/SKILL.md`](./.agents/skills/literature_search_arxiv/SKILL.md) | Query arXiv, Europe PMC, and OpenAlex for scientific preprints and full-text papers. |
+
+#### K. Brand Identity, Tooling & UI Migrations
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `logo-design` | [`.agents/skills/logo-design/SKILL.md`](./.agents/skills/logo-design/SKILL.md) | Professional brand-mark design, 1,400+ SVG logo library, audit and export scripts. |
+| `transitions-agent` | [`.agents/skills/transitions-agent/SKILL.md`](./.agents/skills/transitions-agent/SKILL.md) | Scan codebase for UI motion quality, grade transitions (0-100), and auto-apply recipes. |
+| `migrate-radix-to-base` | [`.agents/skills/migrate-radix-to-base/SKILL.md`](./.agents/skills/migrate-radix-to-base/SKILL.md) | Comprehensive 10-reference migration engine from Radix UI primitives to `@base-ui/react`. |
+| `context7-mcp` | [`.agents/skills/context7-mcp/SKILL.md`](./.agents/skills/context7-mcp/SKILL.md) | Context7 MCP resolution, documentation queries, and API code reference lookup. |
+| `using-ao` | [`.agents/skills/using-ao/SKILL.md`](./.agents/skills/using-ao/SKILL.md) | Agent Orchestrator (`ao`) CLI commands: workers, worktrees, sessions, and daemon control. |
+| `openai-docs` | [`.agents/skills/openai-docs/SKILL.md`](./.agents/skills/openai-docs/SKILL.md) | Official OpenAI API, SDKs, and Codex prompt/system reference documentation. |
