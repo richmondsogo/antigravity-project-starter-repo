@@ -55,3 +55,13 @@ Bundle 100% of the skills installed locally on the user's PC (across user config
      - No obviously tracked secrets: **OK**
      - components.json valid & configured for Phosphor Icons: **OK**
      - Local agent skills frontmatter integrity: **OK** (4 passed, 0 failed).
+
+---
+
+## Provenance
+
+- **First Commit SHA**: `1851cfc`
+- **Last Commit SHA**: `1851cfc`
+- **Merge Commit SHA**: `f2d8004`
+- **Total Local Skills Bundled**: 266 skills
+
