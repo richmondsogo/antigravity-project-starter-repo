@@ -2,7 +2,7 @@
 
 A portable, self-contained engineering operating system for software projects built with Antigravity and agentic coding assistants.
 
-Clone this repository onto any machine and start building immediately with a curated suite of **70+ UI/UX, Motion, Site-Testing, and Engineering Workflow skills**, a pre-configured **Phosphor Iconography System** (`components.json`), ready-to-use **MCP templates**, and strict **Git & Documentation hygiene**.
+Clone this repository onto any machine and start building immediately with a complete suite of **266 offline UI/UX, Motion, Framework, Cloud & Data, and Engineering Workflow skills**, a pre-configured **Phosphor Iconography System** (`components.json`), ready-to-use **MCP templates**, and strict **Git & Documentation hygiene**.
 
 ---
 
@@ -24,11 +24,12 @@ flowchart LR
 
 ## What Travels With This Repository
 
-### 1. Portable Agent Skills Suite (`.agents/skills/`)
+### 1. Portable Agent Skills Suite (`.agents/skills/`) — 266 Skills
 No global machine setup required. All skills live inside `.agents/skills/` and work out of the box:
 - **UI/UX Pro Max (`ui-ux-pro-max`)**: Local Python search engine (`scripts/search.py`) with 79 styles, 192 product palettes, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, and 22 technology stacks.
 - **Design & Art Direction**:
   - `design-system` — Project token grounding + **Phosphor Icons** semantic weight hierarchy (`regular`, `duotone`, `bold`, `fill`).
+  - `logo-design` — Senior brand-mark & identity design system with SVG generator and audit tools.
   - `minimalist-ui` — Warm monochrome palettes, editorial serif/sans hierarchy, flat `1px` border bento architectures.
   - `tastemaker` (`codeswithroh`) & `taste-skill` (`leonxlnx`) — Anti-slop art direction, contrast-verified palettes, hallmark layouts.
   - `web-design-engineer` & `motion-showreel` (ConardLi Garden skills) — OKLCH color theory, style recipes, interactive showreels.
@@ -39,9 +40,11 @@ No global machine setup required. All skills live inside `.agents/skills/` and w
   - `better-interface` — Cross-discipline meta-audit that evaluates and scores how good a site is across UI, typography, color, layout, accessibility, and copy.
   - `better-ui`, `better-typography`, `better-colors`, `better-layout`, `better-accessibility`, `better-writing`, `interface-review`, and `break` (edge-case stress testing).
   - `browser-verification` — Real browser verification loop.
-- **Motion & GSAP Engineering (Emil Kowalski & GreenSock)**:
+- **Motion & GSAP Engineering (Emil Kowalski, GreenSock & Transitions Agent)**:
   - `emil-design-eng`, `animate`, `review-animations`, `improve-animations`, `find-animation-opportunities`, `animation-performance`.
+  - `transitions-agent` — Complete CLI motion scanner and recipe refactoring system.
   - Official GreenSock suite: `gsap-core`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-react`, `gsap-plugins`, `gsap-performance`, `gsap-frameworks`, `gsap-utils`, and `cinematic-gsap-lenis-motion-system`.
+  - `motion` (Motion for React & Framer Motion with CSS spring calculators and audit guides).
 - **Superpowers Engineering Loop**:
   - `using-superpowers` — Workflow harness and skill dispatching router.
   - `brainstorming` — Socratic product exploration, requirements shaping, and visual companion.
@@ -53,12 +56,21 @@ No global machine setup required. All skills live inside `.agents/skills/` and w
   - `requesting-code-review` & `receiving-code-review` — Two-axis diff review and pushback handling.
   - `finishing-a-development-branch` & `using-git-worktrees` — Worktree management and merge protocols.
   - `writing-skills` — Skill authoring and benchmarking.
-- **Chrome DevTools & Web Performance**:
+- **Framework & Application Ecosystems**:
+  - **Flutter & Dart (25 skills)**: `flutter-build-responsive-layout`, `flutter-setup-declarative-routing`, `dart-add-unit-test`, `dart-collect-coverage`, `dart-generate-test-mocks`, `dart-run-static-analysis`, `dart-use-primary-constructors`, etc.
+  - **Firebase (13 skills)**: `firebase_auth_basics`, `firebase_ai_logic_basics`, `firebase_firestore`, `firebase_crashlytics`, `firestore_rules_creation`, `firebase_security_rules_auditor`.
+  - **Android & Mobile (3 skills)**: `android-cli`, `compose-preview`, `device-hub`.
+  - **FastAPI & Python**: `fastapi` (official best practices & streaming), `uv`, `managing-python-dependencies`.
+  - **Frontend UI Migrations**: `migrate-radix-to-base` (full 10-reference migration guide from Radix to Base UI), `pick-ui-library`, `shadcn`.
+- **Cloud, BigQuery & Data Engineering (37 skills)**:
+  - `bigquery-sql`, `bigquery-ai-ml`, `bigquery-bigframes`, `dataform-bigquery`, `dbt-bigquery`, `gcp-dataflow`, `gcp-managed-airflow`, `gcp-spark`, `data-autocleaning`.
+- **Science & Bioinformatics (41 skills)**:
+  - `alphafold`, `chembl`, `pdb`, `pymol`, `uniprot`, `pubchem`, `clinvar`, `literature-search-arxiv`, `europepmc`.
+- **Chrome DevTools & MCP Documentation**:
+  - `context7-mcp` — Context7 MCP resolution and documentation query engine.
   - `chrome-devtools`, `a11y-debugging`, `cookie-debugging`, `memory-leak-debugging`, `debug-optimize-lcp`, `troubleshooting`.
-- **Modern Web & Platform SDKs**:
-  - `modern-web-guidance`, `chrome-extensions`, `google-antigravity-sdk`, `gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`, `write-swift`.
-- **Engineering Workflow & Alignment (Matt Pocock & Alignment)**:
-  - `ask-matt`, `grill-me`, `to-spec`, `to-tickets`, `triage`, `implement`, `tdd`, `code-review`, `diagnosing-bugs`, `prototype`, `improve-codebase-architecture`, `domain-modeling`, `state-machine`, `resolving-merge-conflicts`, `wayfinder`.
+- **Engineering Alignment & Core Workflows**:
+  - `ask-matt`, `grill-me`, `to-spec`, `to-tickets`, `triage`, `implement`, `tdd`, `code-review`, `diagnosing-bugs`, `prototype`, `domain-modeling`, `setup-matt-pocock-skills`, `research`, `using-ao`, `openai-docs`.
 
 ### 2. Baseline UI & MCP Configs
 - **[`components.json`](./components.json)**: Pre-configured for `shadcn/ui` with Tailwind CSS variables and `"iconLibrary": "phosphor"` (`@phosphor-icons/react`).
