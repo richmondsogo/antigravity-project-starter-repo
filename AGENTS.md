@@ -205,7 +205,45 @@ Every skill below lives inside `.agents/skills/` and travels with the repository
 | `owl-design-critique` | [`.agents/skills/owl-design-critique/SKILL.md`](./.agents/skills/owl-design-critique/SKILL.md) | Structured design critique against product goals and usability principles. |
 | `owl-design-principles` | [`.agents/skills/owl-design-principles/SKILL.md`](./.agents/skills/owl-design-principles/SKILL.md) | Defining project-specific design principles and decision tenets. |
 
-#### E. Engineering Workflow, Architecture & Alignment (Matt Pocock & Superpowers)
+#### E. Superpowers Process Suite & Engineering Loop
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `using-superpowers` | [`.agents/skills/using-superpowers/SKILL.md`](./.agents/skills/using-superpowers/SKILL.md) | Universal skill router: invoke relevant skills before any response or action. |
+| `brainstorming` | [`.agents/skills/brainstorming/SKILL.md`](./.agents/skills/brainstorming/SKILL.md) | Interactive design thinking, requirement discovery, and visual companion mockups. |
+| `writing-plans` | [`.agents/skills/writing-plans/SKILL.md`](./.agents/skills/writing-plans/SKILL.md) | Produce detailed, bite-sized implementation specs with exact verification commands. |
+| `executing-plans` | [`.agents/skills/executing-plans/SKILL.md`](./.agents/skills/executing-plans/SKILL.md) | Execute implementation plans task-by-task with verification gates. |
+| `subagent-driven-development` | [`.agents/skills/subagent-driven-development/SKILL.md`](./.agents/skills/subagent-driven-development/SKILL.md) | Dispatch subagents for independent tasks in isolated branches/worktrees. |
+| `dispatching-parallel-agents` | [`.agents/skills/dispatching-parallel-agents/SKILL.md`](./.agents/skills/dispatching-parallel-agents/SKILL.md) | Parallelize 2+ independent work streams safely. |
+| `systematic-debugging` | [`.agents/skills/systematic-debugging/SKILL.md`](./.agents/skills/systematic-debugging/SKILL.md) | 4-phase root cause diagnosis loop before proposing fixes. |
+| `diagnosing-superpowers` | [`.agents/skills/diagnosing-superpowers/SKILL.md`](./.agents/skills/diagnosing-superpowers/SKILL.md) | Post-mortem session diagnosis and audit. |
+| `test-driven-development` | [`.agents/skills/test-driven-development/SKILL.md`](./.agents/skills/test-driven-development/SKILL.md) | Enforce red-green-refactor cycle before writing implementation code. |
+| `verification-before-completion` | [`.agents/skills/verification-before-completion/SKILL.md`](./.agents/skills/verification-before-completion/SKILL.md) | Strict verification evidence before claiming tasks are done. |
+| `requesting-code-review` | [`.agents/skills/requesting-code-review/SKILL.md`](./.agents/skills/requesting-code-review/SKILL.md) | Two-axis code review against standards and spec. |
+| `receiving-code-review` | [`.agents/skills/receiving-code-review/SKILL.md`](./.agents/skills/receiving-code-review/SKILL.md) | Handle code review suggestions with technical rigor. |
+| `finishing-a-development-branch` | [`.agents/skills/finishing-a-development-branch/SKILL.md`](./.agents/skills/finishing-a-development-branch/SKILL.md) | Clean up, branch merge strategy, and post-implementation decisions. |
+| `using-git-worktrees` | [`.agents/skills/using-git-worktrees/SKILL.md`](./.agents/skills/using-git-worktrees/SKILL.md) | Isolate development workflows using native worktrees. |
+| `writing-skills` | [`.agents/skills/writing-skills/SKILL.md`](./.agents/skills/writing-skills/SKILL.md) | Author, test, and benchmark new reusable agent skills. |
+
+#### F. Chrome DevTools, Web Guidance & Platform SDKs
+
+| Skill | Path | When to Use |
+|---|---|---|
+| `chrome-devtools` | [`.agents/skills/chrome-devtools/SKILL.md`](./.agents/skills/chrome-devtools/SKILL.md) | Browser inspection, DOM/CSS styles, and network analysis via MCP. |
+| `a11y-debugging` | [`.agents/skills/a11y-debugging/SKILL.md`](./.agents/skills/a11y-debugging/SKILL.md) | Accessibility debugging and WCAG 2.2 auditing. |
+| `cookie-debugging` | [`.agents/skills/cookie-debugging/SKILL.md`](./.agents/skills/cookie-debugging/SKILL.md) | Inspect cookies, session tokens, and auth redirects. |
+| `memory-leak-debugging` | [`.agents/skills/memory-leak-debugging/SKILL.md`](./.agents/skills/memory-leak-debugging/SKILL.md) | Diagnose memory leaks and inspect heap snapshots. |
+| `debug-optimize-lcp` | [`.agents/skills/debug-optimize-lcp/SKILL.md`](./.agents/skills/debug-optimize-lcp/SKILL.md) | Core Web Vitals Largest Contentful Paint optimization. |
+| `troubleshooting` | [`.agents/skills/troubleshooting/SKILL.md`](./.agents/skills/troubleshooting/SKILL.md) | Diagnose DevTools MCP connectivity issues. |
+| `modern-web-guidance` | [`.agents/skills/modern-web-guidance/SKILL.md`](./.agents/skills/modern-web-guidance/SKILL.md) | Modern web standards, modern HTML APIs, and performance. |
+| `chrome-extensions` | [`.agents/skills/chrome-extensions/SKILL.md`](./.agents/skills/chrome-extensions/SKILL.md) | Manifest V3 Chrome Extension development. |
+| `google-antigravity-sdk` | [`.agents/skills/google-antigravity-sdk/SKILL.md`](./.agents/skills/google-antigravity-sdk/SKILL.md) | Multi-agent orchestration and Antigravity SDK workflows. |
+| `gemini-api-dev` | [`.agents/skills/gemini-api-dev/SKILL.md`](./.agents/skills/gemini-api-dev/SKILL.md) | Gemini API multimodal generation, structured output, and tools. |
+| `gemini-live-api-dev` | [`.agents/skills/gemini-live-api-dev/SKILL.md`](./.agents/skills/gemini-live-api-dev/SKILL.md) | Real-time bidirectional streaming over WebSockets. |
+| `gemini-omni-flash-api` | [`.agents/skills/gemini-omni-flash-api/SKILL.md`](./.agents/skills/gemini-omni-flash-api/SKILL.md) | Low-latency audio-to-audio streaming with Gemini Omni. |
+| `write-swift` | [`.agents/skills/write-swift/SKILL.md`](./.agents/skills/write-swift/SKILL.md) | Swift language conventions and idiomatic code patterns. |
+
+#### G. Engineering Workflow, Architecture & Alignment (Matt Pocock & Alignment)
 
 | Skill | Path | When to Use |
 |---|---|---|
